@@ -1,7 +1,7 @@
 from django.db import models
 from pessoas.models import Pessoa
 
-class Conta(models.Model):
+class Caixas(models.Model):
     pessoa = models.ForeignKey(Pessoa)
 
     #E = Entrada / S = Saida
@@ -13,4 +13,4 @@ class Conta(models.Model):
 
     pagseguro = models.CharField(max_length='300', blank=True)
 
-    data = models.DateTimeField(db_index=True, auto_now=False, auto_now_add=True)
+    data = models.DateField(db_index=True, auto_now=False, auto_now_add=True)
