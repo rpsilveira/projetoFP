@@ -24,7 +24,7 @@
     <div class="form-group">
         <label for="idTelefone" class="col-sm-2 control-label">Contatos</label>
             <div class="col-sm-5">
-                <input name="telefone" id="idTelefone" value="{{ pessoa.telefone|default_if_none:'' }}" type="text" class="form-control"  placeholder="(00) 0-0000-0000" data-mask="(99) 9-9999-9999">
+                <input name="telefone" id="idTelefone" value="{{ pessoa.telefone|default_if_none:'' }}" type="text" class="form-control"  placeholder="(00) 0000-0000" data-mask="(99) 9999-9999">
             </div>
             <div class="col-sm-5">
                 <input name="email" id="idEmail" value="{{ pessoa.email|default_if_none:'' }}" type="email" class="form-control" placeholder="nome@dominio.com">
