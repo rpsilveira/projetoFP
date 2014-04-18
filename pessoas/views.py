@@ -35,10 +35,10 @@ def pessoaSalvar(request):
         except:
             pessoa = Pessoa()
 
-        pessoa.nome = request.POST.get('nome', '').upper()
-        pessoa.email = request.POST.get('email', '').upper()
-        pessoa.telefone = request.POST.get('telefone', '(00) 0-0000-0000').upper()
-        pessoa.logradouro = request.POST.get('logradouro', '').upper()
+        pessoa.nome = request.POST.get('nome', '')
+        pessoa.email = request.POST.get('email', '')
+        pessoa.telefone = request.POST.get('telefone', '(00) 0-0000-0000')
+        pessoa.logradouro = request.POST.get('logradouro', '')
 
         pessoa.save()
     return HttpResponseRedirect('/pessoas/')

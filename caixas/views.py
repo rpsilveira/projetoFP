@@ -25,10 +25,10 @@ def caixaSalvar(request):
 
         caixa.pessoa_id = request.POST.get('pessoa_id', '')
         caixa.tipo = request.POST.get('tipo', '').upper()
-        caixa.descricao = request.POST.get('descricao', '').upper()
+        caixa.descricao = request.POST.get('descricao', '')
         caixa.valor = request.POST.get('valor', '').upper()
-        caixa.pagseguro = request.POST.get('pagseguro', '').upper()
-        caixa.data = request.POST.get('data', '00/00/0000').upper()
+        caixa.pagseguro = request.POST.get('pagseguro', '')
+        caixa.data = request.POST.get('data', '00/00/0000')
 
         caixa.save()
     return HttpResponseRedirect('/caixas/')
