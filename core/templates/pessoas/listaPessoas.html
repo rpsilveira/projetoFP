@@ -25,17 +25,24 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>#</th>
             <th>Nome</th>
             <th>E-Mail</th>
             <th>Telefone</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
         {% for pessoa in pessoas %}
           <tr>
-            <td><a href="/pessoas/editar/{{ pessoa.pk }}">{{ pessoa.nome }}</a></td>
+            <td>{{ pessoa.id }}</td>
+            <td>{{ pessoa.nome }}</td>
             <td>{{ pessoa.email }}</td>
             <td>{{ pessoa.telefone }}</td>
+            <td>
+              <a class="btn btn-primary" href="/pessoas/editar/{{ pessoa.pk }}">Editar</a>
+              <a class="btn btn-danger" href="/pessoas/excluir/{{ pessoa.pk }}/">Excluir</a>
+            </td>
           </tr>
         {% endfor %}  
         </tbody>

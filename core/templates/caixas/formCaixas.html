@@ -30,8 +30,8 @@
     <div class="form-group">
         <label for="idTipo" class="col-sm-2 control-label">Tipo</label>
             <select name="tipo">
-                <option value="E">Entrada</option>
-                <option value="S">Saida</option>
+                <option value="E" {% if caixa.tipo == 'E' %} selected="selected" {% endif %}>Entrada</option>
+                <option value="S" {% if caixa.tipo == 'S' %} selected="selected" {% endif %}>Saida</option>
             </select>
     </div>
 
@@ -60,9 +60,6 @@
 
     <div align="center">
         <button type="submit" class="btn btn-success">Salvar Registro</button>
-        {% if caixa.pk > 0 %}
-        <a class="btn btn-danger" href="/caixas/excluir/{{ caixa.pk }}/">Excluir</a>
-        {% endif %}
     </div>
 </form>
 

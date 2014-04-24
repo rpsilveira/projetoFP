@@ -31,17 +31,22 @@
             <th>PagSeguro</th>
             <th>Data</th>
           	<th>Pessoa</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
         {% for caixa in caixas %}
           <tr>
-            <td><a href="/caixas/editar/{{ caixa.pk }}">{{ caixa.descricao }}</a></td>
+            <td>{{ caixa.descricao }}</td>
             <td>{{ caixa.tipo }}</td>
             <td>{{ caixa.valor }}</td>
             <td>{{ caixa.pagseguro }}</td>
             <td>{{ caixa.data }}</td>
             <td>{{ caixa.pessoa.nome }}</td>
+            <td>
+              <a class="btn btn-primary" href="/caixas/editar/{{ caixa.pk }}">Editar</a>
+              <a class="btn btn-danger" href="/caixas/excluir/{{ caixa.pk }}/">Excluir</a>
+            </td>
           </tr>
         {% endfor %}  
         </tbody>
