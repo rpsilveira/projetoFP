@@ -45,7 +45,7 @@ def pessoaSalvar(request):
 
 def pessoaPesquisar(request):
     if request.method == 'POST':
-        textoBusca = request.POST.get('textoBusca', 'TUDO').upper()
+        textoBusca = request.POST.get('textoBusca', 'TUDO')
 
         try:
             if textoBusca == 'TUDO':

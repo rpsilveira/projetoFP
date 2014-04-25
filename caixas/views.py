@@ -24,9 +24,9 @@ def caixaSalvar(request):
             caixa = Caixas()
 
         caixa.pessoa_id = request.POST.get('pessoa_id', '')
-        caixa.tipo = request.POST.get('tipo', '').upper()
+        caixa.tipo = request.POST.get('tipo', '')
         caixa.descricao = request.POST.get('descricao', '')
-        caixa.valor = request.POST.get('valor', '').upper()
+        caixa.valor = request.POST.get('valor', '')
         caixa.pagseguro = request.POST.get('pagseguro', '')
         caixa.data = request.POST.get('data', '00/00/0000')
 
@@ -35,7 +35,7 @@ def caixaSalvar(request):
 
 def caixaPesquisar(request):
     if request.method == 'POST':
-        textoBusca = request.POST.get('textoBusca', 'TUDO').upper()
+        textoBusca = request.POST.get('textoBusca', 'TUDO')
 
         try:
             if textoBusca == 'TUDO':

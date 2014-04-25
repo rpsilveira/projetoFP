@@ -3,54 +3,61 @@
 {% block titulo %}Formulário da Conta{% endblock titulo %}
 
 {% block conteudo %}
-<form class="form-horizontal" action="/caixas/salvar/" method="POST" role="form">{% csrf_token %}
 
+<form class="form-horizontal" action="/caixas/salvar/" method="POST" role="form">{% csrf_token %}
+    <legend class="page-header">Cadastro de Conta</legend>
+    
     <input type="hidden" id="codigo" name="codigo" value="{{ caixa.pk|default_if_none:'0' }}">
 
     <div class="form-group">
-        <label for="idPessoa" class="col-sm-2 control-label">Pessoa</label>
+        <label for="idPessoa" class="col-sm-2 control-label">Pessoa:</label>
+        
         <!--
-        <div class="col-sm-10">
-            <select name="pessoa_id">
+        <div class="col-sm-6">
+            <select class="form-control" name="pessoa_id">
                 <option value="{{ pessoa.id }}"></option>
             </select>
-        </div> -->
-        <div class="col-sm-10">
+        </div>
+        -->
+
+        <div class="col-sm-6">
             <input name="pessoa_id" id="idPessoa" value="{{ caixa.pessoa_id }}" type="text" class="form-control"  placeholder="ID pessoa..">
-        </div>        
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="idDescricao" class="col-sm-2 control-label">Descrição</label>
-        <div class="col-sm-10">
+        <label for="idDescricao" class="col-sm-2 control-label">Descrição:</label>
+        <div class="col-sm-6">
             <input name="descricao" id="idDescricao" value="{{ caixa.descricao }}" type="text" class="form-control"  placeholder="Descrição da conta...">
         </div>
     </div>
 
     <div class="form-group">
-        <label for="idTipo" class="col-sm-2 control-label">Tipo</label>
-            <select name="tipo">
+        <label for="idTipo" class="col-sm-2 control-label">Tipo:</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="tipo">
                 <option value="E" {% if caixa.tipo == 'E' %} selected="selected" {% endif %}>Entrada</option>
                 <option value="S" {% if caixa.tipo == 'S' %} selected="selected" {% endif %}>Saida</option>
             </select>
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="idValor" class="col-sm-2 control-label">Valor</label>
+        <label for="idValor" class="col-sm-2 control-label">Valor:</label>
             <div class="col-sm-3">
                 <input name="valor" id="idValor" value="{{ caixa.valor|default_if_none:'' }}" type="number" step="any" class="form-control"  placeholder="R$ 0,00" >
             </div>
     </div>
 
     <div class="form-group">
-        <label for="idPagseguro" class="col-sm-2 control-label">PagSeguro</label>
+        <label for="idPagseguro" class="col-sm-2 control-label">PagSeguro:</label>
             <div class="col-sm-3">
                 <input name="pagseguro" id="idPagseguro" value="{{ caixa.pagseguro|default_if_none:'' }}" type="text" class="form-control">
             </div>
     </div>
 
     <div class="form-group">
-        <label for="idData" class="col-sm-2 control-label">Data</label>
+        <label for="idData" class="col-sm-2 control-label">Data:</label>
             <div class="col-sm-3">
                 <input name="data" id="idData" value="{{ caixa.data }}" type="date" class="form-control" >
             </div>

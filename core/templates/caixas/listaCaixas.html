@@ -3,26 +3,31 @@
 {% block titulo %}Caixas{% endblock titulo %}
 
 {% block conteudo %}
-<div align="center"> 
   <form role="form" method="POST" action="/caixas/pesquisar/">{% csrf_token %}
+    <legend class="page-header">Pesquisa de Contas</legend>
+    
     <div class="form-group">
       <div class="row">
-        <div class="col-md-10">
-          <input type="text" class="form-control" id="textoBusca" name="textoBusca" value="{{ textoBusca }}" placeholder="Digite um texto para a busca...">
+        <div class="col-md-4">
+          <div class="input-group">
+            <input type="text" class="form-control" id="textoBusca" name="textoBusca" value="{{ textoBusca }}" placeholder="Digite um texto para a busca...">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary">Pesquisar <span class="glyphicon glyphicon-search"></span></button>
+            </span>
+          </div>
         </div>
-        <div class="col-md-2" align="center">
-          <button type="submit" class="btn btn-primary">Pesquisar <span class="glyphicon glyphicon-search"></span></button>
+        <div class="col-md-2">
+          <a href="/caixas/adicionar/" class="btn btn-warning">Cadastrar Conta</a>
         </div>
       </div>
-    </div>  
-  </form>
+    </div>
+  </form 
   
-  <a href="/caixas/adicionar/" class="btn btn-warning">Cadastra Conta</a>
 
 </div>
 <hr>
 <div class="table-responsive">
-      <table class="table table-striped">
+      <table class="table table-striped table-condensed">
         <thead>
           <tr>
             <th>Descrição</th>
@@ -31,7 +36,7 @@
             <th>PagSeguro</th>
             <th>Data</th>
           	<th>Pessoa</th>
-            <th>Ações</th>
+            <th class="text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -44,8 +49,12 @@
             <td>{{ caixa.data }}</td>
             <td>{{ caixa.pessoa.nome }}</td>
             <td>
-              <a class="btn btn-primary" href="/caixas/editar/{{ caixa.pk }}">Editar</a>
-              <a class="btn btn-danger" href="/caixas/excluir/{{ caixa.pk }}/">Excluir</a>
+              <div class="text-center">
+                <div class="btn-group btn-group-sm">
+                  <a class="btn btn-primary" href="/caixas/editar/{{ caixa.pk }}">Editar</a>
+                  <a class="btn btn-danger" href="/caixas/excluir/{{ caixa.pk }}/">Excluir</a>
+                </div>
+              </div>
             </td>
           </tr>
         {% endfor %}  
